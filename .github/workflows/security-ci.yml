@@ -27,14 +27,14 @@ jobs:
           terraform validate
 
       - name: Lint Kubernetes Manifests
-        uses: stefanprodan/kubeconform@v4
+        uses: stefanprodan/kubeconform-action@v4
         with:
           path: kubernetes-manifests/
           strict: true
           ignore-missing-schemas: true
 
       - name: Run Trivy vulnerability scanner in repo mode
-        uses: aquasecurity/trivy-action@0.18.0
+        uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
           ignore-unfixed: true
